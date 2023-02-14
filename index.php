@@ -17,7 +17,7 @@
 $server = 'localhost';
 $user = 'root';
 $pwd = '';
-$db = 'bdd_cours';
+$db = 'base_exercice';
 
 try {
 
@@ -25,13 +25,13 @@ try {
     $maConnexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $maConnexion->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-    $pom = $maConnexion->prepare("SELECT id, nom, prenom, rue, numero, code postal, ville, pays, mail FROM user");
+    $pom = $maConnexion->prepare("SELECT id, nom, prenom, rue, numero, code_postal, ville, pays, mail FROM user");
 
     $state = $pom->execute();
 
     if($state) {
         foreach($pom->fetchAll() as $user) {
-            echo "<div>Personne " . $user['id'] . ":" . $user['nom'] . " " . $user['prenom'] . " " . $user['rue'] . " " . $user['numero'] . " " . $user['code postal'] . " " . $user['ville'] . " " . $user['pays'] . " " . $user['mail'] . "</div>";
+            echo "<div>Personne " . $user['id'] . ":" . $user['nom'] . " " . $user['prenom'] . " " . $user['rue'] . " " . $user['numero'] . " " . $user['code_postal'] . " " . $user['ville'] . " " . $user['pays'] . " " . $user['mail'] . "</div>";
         }
     }
     else {
@@ -44,7 +44,7 @@ try {
 
     if($state) {
         foreach($pom->fetchAll() as $user) {
-            echo "<div>Personne " . $user['id'] . ":" . $user['nom'] . " " . $user['prenom'] . " " . $user['rue'] . " " . $user['numero'] . " " . $user['code postal'] . " " . $user['ville'] . " " . $user['pays'] . " " . $user['mail'] . "</div>";
+            echo "<div>Personne " . $user['id'] . ":" . $user['nom'] . " " . $user['prenom'] . " " . $user['rue'] . " " . $user['numero'] . " " . $user['code_postal'] . " " . $user['ville'] . " " . $user['pays'] . " " . $user['mail'] . "</div>";
         }
     }
     else {
